@@ -9,7 +9,7 @@ app.use(express.bodyParser());    // 读取请求body的中间件
 
 //使用express路由API服务/hello的http GET请求
 app.get('/hello', function(req, res) {
-  res.render('hello', { message: 'Congrats, you just set up your app!' });
+  res.render('hello', { message: '嘘嘘后台管理系统' });
 });
 //最后，必须有这行代码来使express响应http请求
 app.listen();
