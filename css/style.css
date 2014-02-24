@@ -289,8 +289,8 @@ body {
 	z-index: 2;
 }
 .swiper1, .swiper1 .swiper-slide{
-	width: 640px;
-	height: 840px;
+	width: 320px;
+	height: 420px;
 }
 .pagination1 {
 	text-align: center;
