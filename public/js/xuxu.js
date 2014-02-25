@@ -29,10 +29,10 @@ $(function() {
   collection.fetch({
     success: function(collection) {
       collection.each(function(object) {
-        document.writeln(object.get("contentText")+"123\n");
+        //document.writeln(object.get("contentText")+"123\n");
         var profilePhoto = object.get("image");
         //strPut +="<img src="+profilePhoto.url()+"\">";
-        document.writeln("<img src=\""+profilePhoto.url()+"\">");
+        document.writeln("<img src=\""+profilePhoto.url()+"\"/><br/>");
         document.writeln(profilePhoto.url());
       });
     },
