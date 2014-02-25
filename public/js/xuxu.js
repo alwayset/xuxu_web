@@ -1,5 +1,4 @@
 $(function() {
-  window.alert("你麻痹1");
   AV.$ = jQuery;
 
   // Initialize AV with your AV application javascript keys
@@ -21,13 +20,11 @@ $(function() {
     model: PaWallObject,
 
     });
-  document.writeln("hahaha");
-  window.alert("你麻痹2");
   var collection = new PaWallObjects();
   collection.fetch({
     success: function(collection) {
       collection.each(function(object) {
-        document.writeln(object);
+        document.writeln(object.get("contentText"));
       });
     },
     error: function(collection, error) {
