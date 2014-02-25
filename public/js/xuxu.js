@@ -21,6 +21,8 @@ $(function() {
     model: PaWallObject,
 
     });
+  document.writeln("hahaha");
+  window.alert("你麻痹");
   var collection = new PaWallObjects();
   collection.fetch({
     success: function(collection) {
