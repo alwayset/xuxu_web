@@ -19,14 +19,19 @@ $(function() {
     // Reference to this collection's model.
     model: PaWallObject,
 
-    });
+  });
+
+  var strPut = "";
+  
+
+
   var collection = new PaWallObjects();
   collection.fetch({
     success: function(collection) {
       collection.each(function(object) {
         document.writeln(object.get("contentText")+"123\n");
         var profilePhoto = object.get("image");
-        $("profileImg")[0].src = profilePhoto.url();
+        strPut +="<img src="+profilePhoto.url()+"\">";
       });
     },
     error: function(collection, error) {
@@ -36,5 +41,6 @@ $(function() {
   collection.comparator = function(object) {
     return object.get("createdAt");
   };
+  $("#divImg").html(strPut);//<div id="divImg"></div>
 
 });
