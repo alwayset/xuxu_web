@@ -25,6 +25,8 @@ $(function() {
     success: function(collection) {
       collection.each(function(object) {
         document.writeln(object.get("contentText")+"123\n");
+        var profilePhoto = object.get("image");
+        $("profileImg")[0].src = profilePhoto.url();
       });
     },
     error: function(collection, error) {
