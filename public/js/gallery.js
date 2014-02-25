@@ -37,6 +37,8 @@ $(function() {
         //strPut +="<img src="+profilePhoto.url()+"\">";
         alert(0);
         document.writeln("<img src=\""+profilePhoto.url()+"\"/>");
+        alert(1);
+        alert(profilePhoto.url());
         document.writeln(profilePhoto.url());
       });
     },
