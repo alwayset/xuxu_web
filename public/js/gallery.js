@@ -26,9 +26,7 @@ $(function() {
 
 
   var collection = new Pictures();
-  collection.comparator = function(object) {
-    return object.get("createdAt");
-  };
+
   collection.fetch({
     success: function(collection) {
       collection.each(function(object) {
@@ -46,6 +44,8 @@ $(function() {
       // The collection could not be retrieved.
     }
   });
-
+  collection.comparator = function(object) {
+    return object.get("createdAt");
+  };
 
 });
