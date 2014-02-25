@@ -32,8 +32,8 @@ $(function() {
         //document.writeln(object.get("contentText")+"123\n");
         var profilePhoto = object.get("image");
         //strPut +="<img src="+profilePhoto.url()+"\">";
-        document.writeln("<img src=\""+profilePhoto.url()+"\"/><br/>");
-        document.writeln(profilePhoto.url());
+        document.writeln("<img style="width:30%;height:30%" src=\""+profilePhoto.url()+"\"/><br/>");
+        //document.writeln(profilePhoto.url());
       });
     },
     error: function(collection, error) {
