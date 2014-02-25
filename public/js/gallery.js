@@ -9,15 +9,15 @@ $(function() {
   // ----------
 
   // Our basic Todo model has `content`, `order`, and `done` attributes.
-  var PaWallObject = AV.Object.extend("PaWallObject");
+  var Picture = AV.Object.extend("Picture");
 
   // Todo Collection
   // ---------------
 
-  var PaWallObjects = AV.Collection.extend({
+  var Pictures = AV.Collection.extend({
 
     // Reference to this collection's model.
-    model: PaWallObject,
+    model: Picture,
 
   });
 
@@ -25,10 +25,7 @@ $(function() {
   
 
 
-  var collection = new PaWallObjects();
-    collection.comparator = function(object) {
-    return object.get("createdAt");
-  };
+  var collection = new Pictures();
   collection.comparator = function(object) {
     return object.get("createdAt");
   };
@@ -36,7 +33,7 @@ $(function() {
     success: function(collection) {
       collection.each(function(object) {
         //document.writeln(object.get("contentText")+"123\n");
-        var profilePhoto = object.get("thumbnail");
+        var profilePhoto = object.get("image");
         //strPut +="<img src="+profilePhoto.url()+"\">";
         document.writeln("<img src=\""+profilePhoto.url()+"\"/>");
         //document.writeln(profilePhoto.url());
