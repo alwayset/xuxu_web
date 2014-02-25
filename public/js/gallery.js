@@ -31,6 +31,7 @@ $(function() {
     success: function(collection) {
       collection.each(function(object) {
         //document.writeln(object.get("contentText")+"123\n");
+        alert(object.get("objectId"))
         var profilePhoto = object.get("image");
         //strPut +="<img src="+profilePhoto.url()+"\">";
         alert(0);
