@@ -24,7 +24,7 @@ $(function() {
   //var strPut = "";
   
 
-  alert(0);
+
   var collection = new Pictures();
   collection.comparator = function(object) {
     return object.get("createdAt");
@@ -35,8 +35,9 @@ $(function() {
         //document.writeln(object.get("contentText")+"123\n");
         var profilePhoto = object.get("image");
         //strPut +="<img src="+profilePhoto.url()+"\">";
+        alert(0);
         document.writeln("<img src=\""+profilePhoto.url()+"\"/>");
-        //document.writeln(profilePhoto.url());
+        document.writeln(profilePhoto.url());
       });
     },
     error: function(collection, error) {
@@ -44,6 +45,5 @@ $(function() {
     }
   });
 
-  //$("#divImg").html(strPut);//<div id="divImg"></div>
 
 });
