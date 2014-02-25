@@ -25,7 +25,7 @@ $(function() {
   collection.fetch({
     success: function(collection) {
       collection.each(function(object) {
-        console.warn(object);
+        document.writeln(object);
       });
     },
     error: function(collection, error) {
