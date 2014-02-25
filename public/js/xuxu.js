@@ -30,9 +30,9 @@ $(function() {
     success: function(collection) {
       collection.each(function(object) {
         //document.writeln(object.get("contentText")+"123\n");
-        var profilePhoto = object.get("image");
+        var profilePhoto = object.get("thumbnail");
         //strPut +="<img src="+profilePhoto.url()+"\">";
-        document.writeln("<img src=\""+profilePhoto.url()+"\" style="width:30%;height:30%;" /><br/>");
+        document.writeln("<img src=\""+profilePhoto.url()+"\"/>");
         //document.writeln(profilePhoto.url());
       });
     },
