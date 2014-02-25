@@ -1,5 +1,5 @@
 $(function() {
-
+  window.alert("你麻痹1");
   AV.$ = jQuery;
 
   // Initialize AV with your AV application javascript keys
@@ -22,7 +22,7 @@ $(function() {
 
     });
   document.writeln("hahaha");
-  window.alert("你麻痹");
+  window.alert("你麻痹2");
   var collection = new PaWallObjects();
   collection.fetch({
     success: function(collection) {
