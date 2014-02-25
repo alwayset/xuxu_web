@@ -24,7 +24,7 @@ $(function() {
   collection.fetch({
     success: function(collection) {
       collection.each(function(object) {
-        document.writeln(object.get("contentText"));
+        document.writeln(object.get("contentText")+"\n");
       });
     },
     error: function(collection, error) {
