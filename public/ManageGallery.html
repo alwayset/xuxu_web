@@ -11,9 +11,12 @@
 		var i = 0; // 用来动态生成span,upfile的id
 		function addAttachmentToList()
 		{
-			alert("add");
+			alert(event.srcElement.value);
+			alert(findAttachment(event.srcElement.value));
  			if (findAttachment(event.srcElement.value)) return; //如果此文档已在附件列表中则不再添加
-    
+			
+			
+			alert("1");
  	 		// 动态创建附件信息栏并添加到附件列表中
   			var span = document.createElement('span');
   			span.id = '_attachment' + i;
@@ -21,6 +24,7 @@
   			span.title = event.srcElement.value;
   			G('attachmentList').appendChild(span);
     
+			alert("2");
   			// 显示附件列表并变换添加附件按钮文本
   			if (G('attachmentList').style.display == 'none')
   			{
