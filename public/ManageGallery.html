@@ -12,10 +12,20 @@
 		var filesArr = new  Array();
 		function addAttachmentToList()
 		{
+		/*
 		  if (findAttachment(event.srcElement.value)) return; //如果此文档已在附件列表中则不再添加
 
 		  alert(event.srcElement.value);
 		  filesArr.push(event.srcElement.value);
+		  
+		  alert(filesArr.length);
+		  //var name = "photo.jpg";
+		  //var avFile = new AV.File(name, file);
+		  */
+		  if (findAttachment(G('_upfile'+i).value)) return; //如果此文档已在附件列表中则不再添加
+
+		  alert(G('_upfile'+i).value);
+		  filesArr.push(G('_upfile'+i).files[0]);
 		  
 		  alert(filesArr.length);
 		  //var name = "photo.jpg";
@@ -128,6 +138,7 @@
 				var name = "photo.jpg";
 				var avFile = new AV.File(name, file);
 			}
+			alert("上传了");
 		}
 	</script>
 </HEAD>
