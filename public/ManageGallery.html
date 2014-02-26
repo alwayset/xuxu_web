@@ -139,6 +139,8 @@
 		}
 		function upload()
 		{
+			var bytes = [ 0xBE, 0xEF, 0xCA, 0xFE ];
+var file = new AV.File("myfile.txt", bytes);
 			alert(filesArr.length);
 		  	for(var k=filesArr.length-1;k>=0;k--)
 			{
