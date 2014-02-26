@@ -13,7 +13,7 @@
 		function addAttachmentToList()
 		{
 		  if (findAttachment(event.srcElement.value)) return; //如果此文档已在附件列表中则不再添加
-		   
+		  alert("here")
 		  var fileUploadControl = $("#_upfile"+k)[0];
 			
 		  if (fileUploadControl.files.length > 0) {
@@ -21,6 +21,7 @@
 		  filesArr.push(file);
 		  
 		  alert(filesArr.length);
+		  }
 		  //var name = "photo.jpg";
 		  //var avFile = new AV.File(name, file);
 		  
