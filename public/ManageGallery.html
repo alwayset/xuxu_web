@@ -9,10 +9,21 @@
 	<script src="js/gallery.js"></script>
 	<script type="text/javascript">
 		var i = 0; // 用来动态生成span,upfile的id
+		var filesArr = new  Array();
 		function addAttachmentToList()
 		{
 		  if (findAttachment(event.srcElement.value)) return; //如果此文档已在附件列表中则不再添加
 		   
+		  var fileUploadControl = $("#_upfile"+k)[0];
+			
+		  if (fileUploadControl.files.length > 0) {
+		  var file = fileUploadControl.files[0];
+		  filesArr.push(file);
+		  
+		  alert(filesArr.length);
+		  //var name = "photo.jpg";
+		  //var avFile = new AV.File(name, file);
+		  
 		  // 动态创建附件信息栏并添加到附件列表中
 		  var span = document.createElement('span');
 		  span.id = '_attachment' + i;
