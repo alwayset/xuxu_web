@@ -14,7 +14,8 @@
 		{
 		  if (findAttachment(event.srcElement.value)) return; //如果此文档已在附件列表中则不再添加
 		  alert(event.srcElement.value);
-		  var fileUploadControl = $("#_upfile"+i)[0];
+		  alert('#_upfile'+i);
+		  var fileUploadControl = $('#_upfile'+i)[0];
 			
 		  if (fileUploadControl.files.length > 0) {
 		  var file = fileUploadControl.files[0];
