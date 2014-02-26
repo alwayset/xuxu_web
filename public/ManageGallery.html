@@ -124,6 +124,7 @@
 				var file = fileUploadControl.files[0];
 				var name = "photo.jpg";
 				var avFile = new AV.File(name, file);
+				}
 			}
 		}
 	</script>
@@ -133,13 +134,12 @@
 		12px;font-family: Verdana;padding:5px;">
 
 	<input type="button" value="添加附件" id="btnAdd" onclick="selectAttachment();">&nbsp;
-	<input type="button" value="上传" id="btnUpload" onclick="upload();">&nbsp;
 	<input type="button" value="清空附件" id="btnClear" style="display:none" onclick="clearAttachment();">
-
 	<div id="attachmentList" style="margin:3px 0px 0px 0px;padding:4px 3px 4px 3px;background-color:#DEEBC6;display:none;border:1px solid #84A24A;">
 
 	</div>
 
 	<div id="total" style="margin:3px 0px 0px 0px;">当前选择上传0个附件</div>
+	<input type="button" value="上传" id="btnUpload" onclick="upload();"></input>
 </BODY>
 </HTML>
