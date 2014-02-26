@@ -15,6 +15,7 @@
 		  if (findAttachment(event.srcElement.value)) return; //如果此文档已在附件列表中则不再添加
 
 		  alert(event.srcElement.value);
+		  alert(event.srcElement.files.length);
 		  filesArr.push(G('_upfile'+i).files[0]);
 		  
 		  alert(filesArr.length);
