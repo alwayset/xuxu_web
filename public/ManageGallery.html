@@ -6,7 +6,7 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script src="js/underscore-1.1.6.js"></script>
     <script src="js/av.js"></script>
-	
+	<script src="js/gallery.js"></script>
 	<script type="text/javascript">
 		var i = 0; // 用来动态生成span,upfile的id
 		function addAttachmentToList()
@@ -113,6 +113,20 @@
 		{
 		  return document.getElementById(id);
 		}
+		function upload()
+		{
+			var o = G('attachmentList').childNodes;
+			alert(o.length);
+		  	for(var k=o.length-1;k>=0;k--)
+			{
+				var fileUploadControl = $("#_upfile"+k)[0];
+				if (fileUploadControl.files.length > 0) {
+				var file = fileUploadControl.files[0];
+				var name = "photo.jpg";
+				var avFile = new AV.File(name, file);
+				}
+			}
+		}
 	</script>
 </HEAD>
 <BODY>
@@ -128,5 +142,6 @@
 		</div>
 
 		<div id="total" style="margin:3px 0px 0px 0px;">当前选择上传0个附件</div>
+		<input type="button" value="上传" id="btnUpload" onclick="upload();"></input>
 </BODY>
 </HTML>
