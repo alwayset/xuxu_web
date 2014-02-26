@@ -11,6 +11,7 @@
 		var i = 0; // 用来动态生成span,upfile的id
 		function addAttachmentToList()
 		{
+			alert("add");
  			if (findAttachment(event.srcElement.value)) return; //如果此文档已在附件列表中则不再添加
     
  	 		// 动态创建附件信息栏并添加到附件列表中
@@ -33,7 +34,6 @@
 
 		function selectAttachment()
 		{
-			alert("select");
   			// 先清除无效动态生成的多余upfile
   			cleanInvalidUpfile();
     
@@ -117,9 +117,10 @@
 		function upload()
 		{
 			var o = G('attachmentList').childNodes;
-		  	for(var i=o.length-1;i>=0;i--)
+			alert(o.length);
+		  	for(var k=o.length-1;k>=0;k--)
 			{
-				var fileUploadControl = $("#_upfile"+i)[0];
+				var fileUploadControl = $("#_upfile"+k)[0];
 				if (fileUploadControl.files.length > 0) {
 				var file = fileUploadControl.files[0];
 				var name = "photo.jpg";
