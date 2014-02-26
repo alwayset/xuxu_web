@@ -13,17 +13,11 @@
 		function addAttachmentToList()
 		{
 		  if (findAttachment(event.srcElement.value)) return; //如果此文档已在附件列表中则不再添加
-		  alert(event.srcElement);
+
 		  alert(event.srcElement.value);
-		  alert('#_upfile'+i);
-		  var fileUploadControl = $('#_upfile'+i)[0];
-		  //alert(fileUploadControl);
-		  if (fileUploadControl.files.length > 0) {
-		  var file = fileUploadControl.files[0];
-		  filesArr.push(file);
+		  filesArr.push(event.srcElement.files[0]);
 		  
 		  alert(filesArr.length);
-		  }
 		  //var name = "photo.jpg";
 		  //var avFile = new AV.File(name, file);
 		  
@@ -129,18 +123,10 @@
 		}
 		function upload()
 		{
-			var o = G('attachmentList').childNodes;
-			alert(o.length);
-		  	for(var k=o.length-1;k>=0;k--)
+		  	for(var k=filesArr.length-1;k>=0;k--)
 			{
-				alert(k);
-				var fileUploadControl = $("#_upfile"+k)[0];
-				alert(fileUploadControl.files.length);
-				if (fileUploadControl.files.length > 0) {
-				var file = fileUploadControl.files[0];
 				var name = "photo.jpg";
 				var avFile = new AV.File(name, file);
-				}
 			}
 		}
 	</script>
