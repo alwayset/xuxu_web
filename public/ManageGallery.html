@@ -32,12 +32,19 @@
 		  //var avFile = new AV.File(name, file);
 		  
 		  // 动态创建附件信息栏并添加到附件列表中
+		  /*
 		  var span = document.createElement('span');
 		  span.id = '_attachment' + i;
 		  span.innerHTML = extractFileName(event.srcElement.value) + '&nbsp;<a href="javascript:delAttachment(' + (i++) + ')"><font color="blue">删除</font></a><br/>';
 		  span.title = event.srcElement.value;
 		  G('attachmentList').appendChild(span);
-		   
+		  */
+		   var span = document.createElement('span');
+		  span.id = '_attachment' + i;
+		  span.innerHTML = extractFileName(G('_upfile'+i).value) + '&nbsp;<a href="javascript:delAttachment(' + (i++) + ')"><font color="blue">删除</font></a><br/>';
+		  span.title = G('_upfile'+i).value;
+		  G('attachmentList').appendChild(span);
+		  
 		  // 显示附件列表并变换添加附件按钮文本
 		  if (G('attachmentList').style.display == 'none')
 		  {
