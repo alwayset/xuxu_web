@@ -11,100 +11,95 @@
 		var i = 0; // 用来动态生成span,upfile的id
 		function addAttachmentToList()
 		{
-			//alert(event.srcElement.value);
-			//alert(findAttachment(event.srcElement.value));
- 			if (findAttachment(event.srcElement.value)) return; //如果此文档已在附件列表中则不再添加
-			
-			
-			//alert("1");
- 	 		// 动态创建附件信息栏并添加到附件列表中
-  			var span = document.createElement('span');
-  			span.id = '_attachment' + i;
-  			span.innerHTML = extractFileName(event.srcElement.value) + '&nbsp;<a href="javascript:delAttachment(' + (i++) + ')"><font color="blue">删除</font></a><br/>';
-  			span.title = event.srcElement.value;
-  			G('attachmentList').appendChild(span);
-    
-			//alert("2");
-  			// 显示附件列表并变换添加附件按钮文本
-  			if (G('attachmentList').style.display == 'none')
-  			{
-  				G('btnAdd').value = '继续添加';
-  				G('attachmentList').style.display = '';
-  				G('btnClear').style.display = '';
-  			}
+		  if (findAttachment(event.srcElement.value)) return; //如果此文档已在附件列表中则不再添加
+		   
+		  // 动态创建附件信息栏并添加到附件列表中
+		  var span = document.createElement('span');
+		  span.id = '_attachment' + i;
+		  span.innerHTML = extractFileName(event.srcElement.value) + '&nbsp;<a href="javascript:delAttachment(' + (i++) + ')"><font color="blue">删除</font></a><br/>';
+		  span.title = event.srcElement.value;
+		  G('attachmentList').appendChild(span);
+		   
+		  // 显示附件列表并变换添加附件按钮文本
+		  if (G('attachmentList').style.display == 'none')
+		  {
+		  G('btnAdd').value = '继续添加';
+		  G('attachmentList').style.display = '';
+		  G('btnClear').style.display = '';
+		  }
 
-  			G('total').innerText = '当前选择上传'+ G('attachmentList').childNodes.length + '个附件';
+		  G('total').innerText = '当前选择上传'+ G('attachmentList').childNodes.length + '个附件';
 		}
 
 		function selectAttachment()
 		{
-  			// 先清除无效动态生成的多余upfile
-  			cleanInvalidUpfile();
-    
-  			// 动态创建上传控件并与span对应
-  			var upfile = '<input type="file" style="display:none" onchange="addAttachmentToList();" id="_upfile'+i+'">';
-  			document.body.insertAdjacentHTML('beforeEnd', upfile);
-  			G('_upfile'+i).click();
+		  // 先清除无效动态生成的多余upfile
+		  cleanInvalidUpfile();
+		   
+		  // 动态创建上传控件并与span对应
+		  var upfile = '<input type="file" style="display:none" onchange="addAttachmentToList();" id="_upfile'+i+'">';
+		  document.body.insertAdjacentHTML('beforeEnd', upfile);
+		  G('_upfile'+i).click();
 		}
 
 		function extractFileName(fn)
 		{
-	  		return fn.substr(fn.lastIndexOf('\\')+1);
+		  return fn.substr(fn.lastIndexOf('\\')+1);
 		}
 
 		function findAttachment(fn)
 		{
-		  	var o = G('attachmentList').getElementsByTagName('span');
-		  	for(var i=0;i<o.length;i++)
-		  	if (o[i].title == fn) return true;
-		  	return false;
+		  var o = G('attachmentList').getElementsByTagName('span');
+		  for(var i=0;i<o.length;i++)
+		  if (o[i].title == fn) return true;
+		  return false;
 		}
 
 		function delAttachment(id)
 		{
-		  	G('attachmentList').removeChild(G('_attachment'+id));
-		  	document.body.removeChild(G('_upfile'+id));
-		    
+		  G('attachmentList').removeChild(G('_attachment'+id));
+		  document.body.removeChild(G('_upfile'+id));
+		   
 		  // 当附件列表为空则不显示并且变化添加附件按钮文本
-		  	if (G('attachmentList').childNodes.length == 0)
-		  	{
-			  	G('btnAdd').value = '添加附件';
-			  	G('attachmentList').style.display = 'none';
-			  	G('btnClear').style.display = 'none';
-		  	}
-		    
-		  	G('total').innerText = '当前选择上传'+ G('attachmentList').childNodes.length + '个附件';   
+		  if (G('attachmentList').childNodes.length == 0)
+		  {
+		  G('btnAdd').value = '添加附件';
+		  G('attachmentList').style.display = 'none';
+		  G('btnClear').style.display = 'none';
+		  }
+		   
+		  G('total').innerText = '当前选择上传'+ G('attachmentList').childNodes.length + '个附件';  
 		}
 
 		function cleanInvalidUpfile()
 		{
-		  	var o = document.body.getElementsByTagName('input');
-		  	for(var i=o.length-1;i>=0;i--)
-		  	if (o[i].type == 'file' && o[i].id.indexOf('_upfile') == 0)
-		  	{
-		  		if (!G('_attachment'+o[i].id.substr(7)))
-		  		document.body.removeChild(o[i]);
-		  	}
+		  var o = document.body.getElementsByTagName('input');
+		  for(var i=o.length-1;i>=0;i--)
+		  if (o[i].type == 'file' && o[i].id.indexOf('_upfile') == 0)
+		  {
+		  if (!G('_attachment'+o[i].id.substr(7)))
+		  document.body.removeChild(o[i]);
+		  }
 		}
 
 		function clearAttachment()
 		{
-		  	var o = G('attachmentList').childNodes;
-		  	for(var i=o.length-1;i>=0;i--)
-		  	G('attachmentList').removeChild(o[i]);
+		  var o = G('attachmentList').childNodes;
+		  for(var i=o.length-1;i>=0;i--)
+		  G('attachmentList').removeChild(o[i]);
 
-		  	o = document.body.getElementsByTagName('input');
-		  	for(var i=o.length-1;i>=0;i--)
-		  	if (o[i].type == 'file' && o[i].id.indexOf('_upfile') == 0)
-		  	{
-		  		document.body.removeChild(o[i]);
-		  	}  
+		  o = document.body.getElementsByTagName('input');
+		  for(var i=o.length-1;i>=0;i--)
+		  if (o[i].type == 'file' && o[i].id.indexOf('_upfile') == 0)
+		  {
+		  document.body.removeChild(o[i]);
+		  }  
 
-		  	G('btnAdd').value = '添加附件';
-		  	G('attachmentList').style.display = 'none';
-		  	G('btnClear').style.display = 'none';    
-		  	G('total').innerText = '当前选择上传0个附件';   
-		    
+		  G('btnAdd').value = '添加附件';
+		  G('attachmentList').style.display = 'none';
+		  G('btnClear').style.display = 'none';   
+		  G('total').innerText = '当前选择上传0个附件';  
+		   
 		}
 
 		function getAttachmentInfo()
@@ -118,19 +113,20 @@
 		{
 		  return document.getElementById(id);
 		}
-		
 	</script>
 </HEAD>
 <BODY>
-	<fieldset style="border : 1px solid #84A24A;text-align:left;COLOR:#84A24A;FONT-SIZE:  
+		<fieldset style="border : 1px solid #84A24A;text-align:left;COLOR:#84A24A;FONT-SIZE: 
 		12px;font-family: Verdana;padding:5px;">
 
-	<input type="button" value="添加附件" id="btnAdd" onclick="selectAttachment();">&nbsp;
-	<input type="button" value="清空附件" id="btnClear" style="display:none" onclick="clearAttachment();">
-	<div id="attachmentList" style="margin:3px 0px 0px 0px;padding:4px 3px 4px 3px;background-color:#DEEBC6;display:none;border:1px solid #84A24A;">
+		<input type="button" value="添加附件" id="btnAdd" onclick="selectAttachment();">&nbsp;
 
-	</div>
+		<input type="button" value="清空附件" id="btnClear" style="display:none" onclick="clearAttachment();">
 
-	<div id="total" style="margin:3px 0px 0px 0px;">当前选择上传0个附件</div>
+		<div id="attachmentList" style="margin:3px 0px 0px 0px;padding:4px 3px 4px 3px;background-color:#DEEBC6;display:none;border:1px solid #84A24A;">
+
+		</div>
+
+		<div id="total" style="margin:3px 0px 0px 0px;">当前选择上传0个附件</div>
 </BODY>
 </HTML>
