@@ -147,6 +147,7 @@ var file = new AV.File("myfile.txt", bytes);
 				alert(k);
 				var name = "photo.jpg";
 				var avFile = new AV.File(name, filesArr[k]);
+				avFile.save();
 			}
 			alert("上传了");
 		}
