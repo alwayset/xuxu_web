@@ -157,8 +157,9 @@
 		      			newCheckbox.type = "checkbox"
 		      			newCheckbox.id="category"+i;
 		      			alert(object.get("categoryName"));
-		      			//newCheckbox.innerHTML = object.get("categoryName");
-		      			newCheckbox.innerText = object.get("categoryName");
+		      			newCheckbox.innerHTML = "什么";
+		      			alert(newCheckbox.innerHTML);
+		      			//newCheckbox.innerText = object.get("categoryName");
 					    G('categoriesList').appendChild(newCheckbox);
 					}
 		  		},
