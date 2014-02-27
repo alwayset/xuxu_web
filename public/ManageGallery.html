@@ -143,6 +143,28 @@
 			}
 			alert(s+"张图片上传了，真的");
 		}
+		$(function() {
+			var Categories = AV.Object.extend("GalleryCategory");
+
+			var query = new AV.Query(Picture);
+			//query.equalTo("playerName", "Dan Stemkoski");
+			query.ascending("categoryId");
+			query.find({
+				success: function(results) {
+		    		for (var i = 0; i < results.length; i++) {
+		      			var object = results[i];
+		      			var newCheckbox = document.createElement('input');
+		      			newCheckbox.type = "checkbox"
+		      			newCheckbox.id="category"+i;
+		      			newCheckbox.value = object.get("categoryName");
+					    G('categoriesList').appendChild(newCheckbox);
+					}
+		  		},
+		  		error: function(error) {
+		    		alert("Error: " + error.code + " " + error.message);
+		  		}	
+			});
+		});
 	</script>
 </HEAD>
 <BODY>
@@ -158,6 +180,9 @@
 		</div>
 
 		<div id="total" style="margin:3px 0px 0px 0px;">当前选择上传0个附件</div>
+		<div id="categoriesList">
+
+		</div>
 		<input type="button" value="上传" id="btnUpload" onclick="upload();"></input>
 
 		<div id="picturesWall" style="margin:3px 0px 0px 0px;padding:4px 3px 4px 3px;background-color:#DEEBC6;border:1px solid #84A24A;">
