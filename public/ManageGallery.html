@@ -32,7 +32,7 @@
 		  var span = document.createElement('span');
 		  span.id = '_attachment' + i;
 		  
-		  span.innerHTML = extractFileName(G('_upfile'+i).value) + '&nbsp;<a  href="javascript:delAttachment(' + (i++) + ')"><font color="blue">删除</font></a><br></br>';
+		  span.innerHTML = extractFileName(G('_upfile'+i).value) + '&nbsp;<a  href="javascript:delAttachment(' + (i++) + ')"><font color="blue">删除</font></a><br\/>';
 		  alert(span.innerHTML);
 		  
 		  //span.title = G('_upfile'+i).value;
