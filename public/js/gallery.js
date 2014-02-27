@@ -35,7 +35,7 @@ $(function() {
 	        alert(profilePhoto.url());
 	        var img = document.createElement('img');
 		    //span.id = '_attachment' + i;
-		    img.url = profilePhoto.url();
+		    img.src = profilePhoto.url();
 		    alert(img.url);
 		  
 		    G('picturesWall').appendChild(img);

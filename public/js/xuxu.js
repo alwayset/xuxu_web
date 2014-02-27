@@ -32,6 +32,7 @@ $(function() {
         //document.writeln(object.get("contentText")+"123\n");
         var profilePhoto = object.get("thumbnail");
         //strPut +="<img src="+profilePhoto.url()+"\">";
+        alert(profilePhoto.url());
         document.writeln("<img src=\""+profilePhoto.url()+"\"/>");
         //document.writeln(profilePhoto.url());
       });
