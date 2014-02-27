@@ -133,6 +133,7 @@
 				var avFile = new AV.File(name, filesArr[k]);
 				avFile.save();
 				alert("picture:");
+				var Picture = AV.Object.extend("Picture");
 				var picture = new Picture();
 				alert(picture);
 				picture.set("image",avFile);
