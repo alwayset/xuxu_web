@@ -126,27 +126,28 @@
 		function upload()
 		{
 			//alert(filesArr.length);
-			var succeed = 0;
+			var s = 0;
+			alert("s="+s);
 		  	for(var k=filesArr.length-1;k>=0;k--)
 			{
-				//alert(k);
+				alert(k);
 				var name = namesArr[k];
 				var avFile = new AV.File(name, filesArr[k]);
 				avFile.save();
-
+				alert("oo");
 				var picture = new Picture();
-				alert(1);
+				alert("haha");
 				picture.set("image", avFile);
-				alert(2);
+				alert("hehe");
 				picture.save(null, {
   					success: function(picture) {
-  						succeed++;
+  						s++;
   					},
   					error: function(picture, error) {
   					}
 				});
 			}
-			alert(succeed + "张图片上传了，真的");
+			alert(s + "张图片上传了，真的");
 		}
 	</script>
 </HEAD>
