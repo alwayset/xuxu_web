@@ -144,7 +144,6 @@
 			alert(s+"张图片上传了，真的");
 		}
 		$(function() {
-			alert("要加categories了");
 			var Category = AV.Object.extend("GalleryCategory");
 
 			var query = new AV.Query(Category);
@@ -152,12 +151,12 @@
 			query.ascending("categoryId");
 			query.find({
 				success: function(results) {
-					alert(results.length+"个");
 		    		for (var i = 0; i < results.length; i++) {
 		      			var object = results[i];
 		      			var newCheckbox = document.createElement('input');
 		      			newCheckbox.type = "checkbox"
 		      			newCheckbox.id="category"+i;
+		      			alert(object.get("categoryName"));
 		      			newCheckbox.innerHTML = object.get("categoryName");
 					    G('categoriesList').appendChild(newCheckbox);
 					}
