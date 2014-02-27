@@ -158,7 +158,7 @@
 		      			var newCheckbox = document.createElement('input');
 		      			newCheckbox.type = "checkbox"
 		      			newCheckbox.id="category"+i;
-		      			newCheckbox.name = object.get("categoryName");
+		      			newCheckbox.innerHTML = object.get("categoryName");
 					    G('categoriesList').appendChild(newCheckbox);
 					}
 		  		},
