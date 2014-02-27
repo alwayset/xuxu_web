@@ -28,8 +28,16 @@ $(function() {
 	        //document.writeln(object.get("contentText")+"123\n");
 	        var profilePhoto = object.get("image");
 	        //strPut +="<img src="+profilePhoto.url()+"\">";
-	        document.writeln("<img src=\""+profilePhoto.url()+"\"/>");
-	        //document.writeln(profilePhoto.url());
+
+	        var img = document.createElement('img');
+		    //span.id = '_attachment' + i;
+		    img.url = profilePhoto.url();
+		    //span.innerHTML = extractFileName(G('_upfile'+i).value) + '&nbsp;<a  href="javascript:delAttachment(' + (i++) + ')"><font color="blue">删除</font></a><br/>';
+
+		  
+		    G('picturesWall').appendChild(img);
+		  
+	        //document.writeln("<img src=\""+profilePhoto.url()+"\"/>");
 	      });
 	    },
 	    error: function(collection, error) {
