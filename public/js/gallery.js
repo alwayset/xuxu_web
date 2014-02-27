@@ -45,7 +45,7 @@ $(function() {
 	      // The collection could not be retrieved.
 	    }
 	  });
-	  alert("共"+s +“张picture”)；
+	  alert("共"+s +"张picture");
 	  collection.comparator = function(object) {
 	    return object.get("createdAt");
 	  };
