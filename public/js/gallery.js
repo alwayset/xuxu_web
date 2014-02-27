@@ -23,9 +23,11 @@ $(function() {
 
 	  alert("1");
 	  var collection = new Pictures();
+	  alert("2");
 	  collection.fetch({
 	    success: function(collection) {
 	      collection.each(function(object) {
+	      	alert("3");
 	        //document.writeln(object.get("contentText")+"123\n");
 	        var profilePhoto = object.get("image");
 	        //strPut +="<img src="+profilePhoto.url()+"\">";
