@@ -123,19 +123,14 @@
 		}
 		function upload()
 		{
-			//alert(filesArr.length);
 			var s = 0;
 		  	for(var k=filesArr.length-1;k>=0;k--)
 			{
-				//alert(k);
-				var name = "来自后台管理的图片.jpg";
-				alert(name);
+				var name = "fromXuxuBackend.jpg";
 				var avFile = new AV.File(name, filesArr[k]);
 				avFile.save();
-				alert("picture:");
 				var Picture = AV.Object.extend("Picture");
 				var picture = new Picture();
-				alert(picture);
 				picture.set("image",avFile);
 				picture.save(null, {
 				  success: function(picture) {
@@ -146,7 +141,7 @@
 				});
 
 			}
-			alert(s+"上传了，真的");
+			alert(s+"张图片上传了，真的");
 		}
 	</script>
 </HEAD>
