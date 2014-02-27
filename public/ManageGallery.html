@@ -144,6 +144,7 @@
 			alert(s+"张图片上传了，真的");
 		}
 		$(function() {
+			alert("要加categories了");
 			var Categories = AV.Object.extend("GalleryCategory");
 
 			var query = new AV.Query(Picture);
@@ -151,6 +152,7 @@
 			query.ascending("categoryId");
 			query.find({
 				success: function(results) {
+					alert(results.length+"个");
 		    		for (var i = 0; i < results.length; i++) {
 		      			var object = results[i];
 		      			var newCheckbox = document.createElement('input');
