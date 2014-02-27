@@ -10,11 +10,13 @@
 	<script type="text/javascript">
 		var i = 0; // 用来动态生成span,upfile的id
 		var filesArr = new  Array();
+		var namesArr = new Array();
 		function addAttachmentToList()
 		{
 
 		  if (findAttachment(G('_upfile'+i).value)) return; //如果此文档已在附件列表中则不再添加
-		  filesArr.push(G('_upfile'+i).files[0]);		  
+		  filesArr.push(G('_upfile'+i).files[0]);	
+		  namesArr.push(G('_upfile'+i).value);	  
 		  // 动态创建附件信息栏并添加到附件列表中
 
 		  var span = document.createElement('span');
@@ -128,19 +130,19 @@
 		  	for(var k=filesArr.length-1;k>=0;k--)
 			{
 				//alert(k);
-				var name = "photo.jpg";
+				var name = namesArr[k];
 				var avFile = new AV.File(name, filesArr[k]);
 				avFile.save();
-				var picture = new Picture();
 
+				var picture = new Picture();
+				alert(1);
 				picture.set("image", avFile);
+				alert(2);
 				picture.save(null, {
-  					success: function(gameScore) {
+  					success: function(picture) {
   						succeed++;
-    					//alert('New object created with objectId: ' + gameScore.id);
   					},
-  					error: function(gameScore, error) {
-    					//alert('Failed to create new object, with error code: ' + error.description);
+  					error: function(picture, error) {
   					}
 				});
 			}
