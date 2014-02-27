@@ -159,11 +159,9 @@
 		      			newCheckbox.type = "checkbox"
 		      			newCheckbox.id="category"+i;
 		      			//newCheckbox.value = object.get("categoryName");
-		      			//newCheckbox.text = object.get("categoryName");
-		      			//newCheckbox.label = object.get("categoryName");
-		      			newCheckbox.value = "一个死值";
 		      			alert(newCheckbox.value);
 					    G('categoriesList').appendChild(newCheckbox);
+					    document.writeln(object.get("categoryName"));
 					}
 		  		},
 		  		error: function(error) {
