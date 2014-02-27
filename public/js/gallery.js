@@ -11,43 +11,28 @@ $(function() {
 	  // Todo Collection
 	  // ---------------
 
-	  var Pictures = AV.Collection.extend({
 
-	    // Reference to this collection's model.
-	    model: Picture,
+	var query = new AV.Query(Picture);
+	//query.equalTo("playerName", "Dan Stemkoski");
+	query.descending("createdAt");
+	query.find({
+  		success: function(results) {
+    		alert("Successfully retrieved " + results.length + " pictures.");
+    		// Do something with the returned AV.Object values
+    		for (var i = 0; i < results.length; i++) {
+      			var object = results[i];
+      			var profilePhoto = object.get('image');
 
-	  });
-
-	  //var strPut = "";
-	  
-	  var collection = new Pictures();
-	  var s = 0;
-	  collection.fetch({
-	    success: function(collection) {
-	      collection.each(function(object) {
-	      	s++;
-	      	alert(s);
-	        //document.writeln(object.get("contentText")+"123\n");
-	        var profilePhoto = object.get('image');
-	        //strPut +="<img src="+profilePhoto.url()+"\">";
-
-	        var img = document.createElement('img');
-		    //span.id = '_attachment' + i;
-		    img.src = profilePhoto.url();
-		    img.style.width = '75px';
-		    img.style.height = '100px';
-		  
-		    G('picturesWall').appendChild(img);
-		  
-	        //document.writeln("<img src=\""+profilePhoto.url()+"\"/>");
-	      });
-	    },
-	    error: function(collection, error) {
-	      // The collection could not be retrieved.
-	    }
-	  });
-	  alert("共"+ s +"张picture");
-	  collection.comparator = function(object) {
-	    return object.get("createdAt");
-	  };
+	        	var img = document.createElement('img');
+		    	img.src = profilePhoto.url();
+		    	img.style.width = '75px';
+			    img.style.height = '100px';
+			  
+			    G('picturesWall').appendChild(img);
+			}
+  		},
+  		error: function(error) {
+    		alert("Error: " + error.code + " " + error.message);
+  		}	
+	});
 });
