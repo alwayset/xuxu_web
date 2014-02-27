@@ -17,10 +17,7 @@
 
 		  alert(event.srcElement.value);
 		  filesArr.push(event.srcElement.value);
-		  
-		  alert(filesArr.length);
-		  //var name = "photo.jpg";
-		  //var avFile = new AV.File(name, file);
+
 		  */
 		  if (findAttachment(G('_upfile'+i).value)) return; //如果此文档已在附件列表中则不再添加
 		  filesArr.push(G('_upfile'+i).files[0]);		  
@@ -32,13 +29,15 @@
 		  span.title = event.srcElement.value;
 		  G('attachmentList').appendChild(span);
 		  */
-		   var span = document.createElement('span');
+		  var span = document.createElement('span');
 		  span.id = '_attachment' + i;
 		  
-		  span.innerHTML = extractFileName(G('_upfile'+i).value) + '&nbsp;<a href="javascript:delAttachment(' + (i++) + ')"><font color="blue">删除</font></a><br/>';
+		  span.innerHTML = extractFileName(G('_upfile'+i).value) + '&nbsp;<a  href="javascript:delAttachment(' + (i++) + ')"><font color="blue">删除</font></a><br></br>';
 		  alert(span.innerHTML);
-		  span.title = G('_upfile'+i).value;
-		  alert(span.title);
+		  
+		  //span.title = G('_upfile'+i).value;
+		  //alert(span.title);
+		  
 		  G('attachmentList').appendChild(span);
 		  
 		  // 显示附件列表并变换添加附件按钮文本
