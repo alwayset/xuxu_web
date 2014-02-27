@@ -40,6 +40,7 @@
 		  */
 		   var span = document.createElement('span');
 		  span.id = '_attachment' + i;
+		  alert(span.id);
 		  span.innerHTML = extractFileName(G('_upfile'+i).value) + '&nbsp;<a href="javascript:delAttachment(' + (i++) + ')"><font color="blue">删除</font></a><br/>';
 		  span.title = G('_upfile'+i).value;
 		  G('attachmentList').appendChild(span);
@@ -75,7 +76,7 @@
 		{
 		  var o = G('attachmentList').getElementsByTagName('span');
 		  for(var i=0;i<o.length;i++)
-		  if (o[i].title == fn) return true;
+			if (o[i].title == fn) return true;
 		  return false;
 		}
 
@@ -87,9 +88,9 @@
 		  // 当附件列表为空则不显示并且变化添加附件按钮文本
 		  if (G('attachmentList').childNodes.length == 0)
 		  {
-		  G('btnAdd').value = '添加附件';
-		  G('attachmentList').style.display = 'none';
-		  G('btnClear').style.display = 'none';
+			  G('btnAdd').value = '添加附件';
+			  G('attachmentList').style.display = 'none';
+			  G('btnClear').style.display = 'none';
 		  }
 		   
 		  G('total').innerText = '当前选择上传'+ G('attachmentList').childNodes.length + '个附件';  
@@ -99,25 +100,25 @@
 		{
 		  var o = document.body.getElementsByTagName('input');
 		  for(var i=o.length-1;i>=0;i--)
-		  if (o[i].type == 'file' && o[i].id.indexOf('_upfile') == 0)
-		  {
-		  if (!G('_attachment'+o[i].id.substr(7)))
-		  document.body.removeChild(o[i]);
-		  }
+			  if (o[i].type == 'file' && o[i].id.indexOf('_upfile') == 0)
+			  {
+				  if (!G('_attachment'+o[i].id.substr(7)))
+				  document.body.removeChild(o[i]);
+			  }
 		}
 
 		function clearAttachment()
 		{
 		  var o = G('attachmentList').childNodes;
 		  for(var i=o.length-1;i>=0;i--)
-		  G('attachmentList').removeChild(o[i]);
+			G('attachmentList').removeChild(o[i]);
 
 		  o = document.body.getElementsByTagName('input');
 		  for(var i=o.length-1;i>=0;i--)
-		  if (o[i].type == 'file' && o[i].id.indexOf('_upfile') == 0)
-		  {
-		  document.body.removeChild(o[i]);
-		  }  
+			  if (o[i].type == 'file' && o[i].id.indexOf('_upfile') == 0)
+			  {
+				document.body.removeChild(o[i]);
+			  }  
 
 		  G('btnAdd').value = '添加附件';
 		  G('attachmentList').style.display = 'none';
@@ -139,8 +140,6 @@
 		}
 		function upload()
 		{
-			var bytes = [ 0xBE, 0xEF, 0xCA, 0xFE ];
-var file = new AV.File("myfile.txt", bytes);
 			alert(filesArr.length);
 		  	for(var k=filesArr.length-1;k>=0;k--)
 			{
