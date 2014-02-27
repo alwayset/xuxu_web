@@ -32,8 +32,8 @@
 		  var span = document.createElement('span');
 		  span.id = '_attachment' + i;
 		  
-		  span.innerHTML = extractFileName(G('_upfile'+i).value) + '&nbsp;<a  href="javascript:delAttachment(' + (i++) + ')"><font color="blue">删除</font></a><br\/>';
-		  alert(span.innerHTML);
+		  span.innerHTML = extractFileName(G('_upfile'+i).value) + '&nbsp;<a  href="javascript:delAttachment(' + (i++) + ')"><font color="blue">删除</font></a><br/>';
+		  //alert(span.innerHTML);
 		  
 		  //span.title = G('_upfile'+i).value;
 		  //alert(span.title);
@@ -135,15 +135,15 @@
 		}
 		function upload()
 		{
-			alert(filesArr.length);
+			//alert(filesArr.length);
 		  	for(var k=filesArr.length-1;k>=0;k--)
 			{
-				alert(k);
+				//alert(k);
 				var name = "photo.jpg";
 				var avFile = new AV.File(name, filesArr[k]);
 				avFile.save();
 			}
-			alert("上传了");
+			alert("上传了，真的");
 		}
 	</script>
 </HEAD>
