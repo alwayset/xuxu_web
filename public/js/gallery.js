@@ -26,6 +26,7 @@ $(function() {
 	    success: function(collection) {
 	      collection.each(function(object) {
 	      	s++;
+	      	alert(s);
 	        //document.writeln(object.get("contentText")+"123\n");
 	        var profilePhoto = object.get('image');
 	        //strPut +="<img src="+profilePhoto.url()+"\">";
@@ -33,7 +34,7 @@ $(function() {
 	        var img = document.createElement('img');
 		    //span.id = '_attachment' + i;
 		    img.src = profilePhoto.url();
-		    img.style.width = '100px';
+		    img.style.width = '75px';
 		    img.style.height = '100px';
 		  
 		    G('picturesWall').appendChild(img);
@@ -45,7 +46,7 @@ $(function() {
 	      // The collection could not be retrieved.
 	    }
 	  });
-	  alert("共"+s +"张picture");
+	  alert("共"+ s +"张picture");
 	  collection.comparator = function(object) {
 	    return object.get("createdAt");
 	  };
