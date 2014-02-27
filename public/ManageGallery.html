@@ -10,13 +10,11 @@
 	<script type="text/javascript">
 		var i = 0; // 用来动态生成span,upfile的id
 		var filesArr = new  Array();
-		var namesArr = new Array();
 		function addAttachmentToList()
 		{
 
 		  if (findAttachment(G('_upfile'+i).value)) return; //如果此文档已在附件列表中则不再添加
-		  filesArr.push(G('_upfile'+i).files[0]);		
-		  namesArr.push(G('_upfile'+i).value);  
+		  filesArr.push(G('_upfile'+i).files[0]);
 		  // 动态创建附件信息栏并添加到附件列表中
 
 		  var span = document.createElement('span');
@@ -130,14 +128,22 @@
 		  	for(var k=filesArr.length-1;k>=0;k--)
 			{
 				//alert(k);
-				var name = namesArr[k];
+				var name = "来自后台管理的图片.jpg";
 				alert(name);
 				var avFile = new AV.File(name, filesArr[k]);
 				avFile.save();
-
+				var picture = new Picture();
+				picture.set("image",avFile);
+				picture.save(null, {
+				  success: function(picture) {
+				  	s++;
+				  },
+				  error: function(picture, error) {
+				  }
+				});
 
 			}
-			alert("上传了，真的");
+			alert(s+"上传了，真的");
 		}
 	</script>
 </HEAD>
