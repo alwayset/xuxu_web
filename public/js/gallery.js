@@ -15,10 +15,10 @@ $(function() {
 	var query = new AV.Query(Picture);
 	//query.equalTo("playerName", "Dan Stemkoski");
 	query.descending("createdAt");
-	query.limit(200);
+	query.limit(100);
 	query.find({
   		success: function(results) {
-    		alert("Successfully retrieved " + results.length + " pictures.");
+    		//alert("Successfully retrieved " + results.length + " pictures.");
     		// Do something with the returned AV.Object values
     		for (var i = 0; i < results.length; i++) {
       			var object = results[i];

@@ -135,21 +135,22 @@
 				picture.set("image",avFile);
 				picture.save(null, {
 				  success: function(picture) {
-				  		for (var k = categoryArr.length - 1; k >= 0; k--) {
-				  			if (G('category'+k).checked) {
-				  				var relation = categoryArr[k].relation("pictures");
+				  		for (var j = categoryArr.length - 1; j >= 0; j--) {
+				  			if (G('category'+j).checked) {
+				  				var relation = categoryArr[j].relation("pictures");
 				  				relation.add(picture);
-				  				categoryArr[k].save();
-				  				alert("图片保存到" + categoryArr[k].get('categoryName'));
+				  				categoryArr[j].save();
+				  				//alert("图片保存到" + categoryArr[j].get('categoryName'));
 				  			}
 				  		};
+				  		if (k==0) {alert("上传了，真的");}
 				  },
 				  error: function(picture, error) {
 				  }
 				});
 
 			}
-			alert("上传了，真的");
+			
 		}
 
 
