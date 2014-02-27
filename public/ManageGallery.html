@@ -140,6 +140,7 @@
 				  				var relation = categoryArr[k].relation("pictures");
 				  				relation.add(picture);
 				  				categoryArr[k].save();
+				  				alert("图片保存到" + categoryArr[k].get('categoryName'));
 				  			}
 				  		};
 				  },
