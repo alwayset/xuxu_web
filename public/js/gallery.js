@@ -29,11 +29,10 @@ $(function() {
 	        //document.writeln(object.get("contentText")+"123\n");
 	        var profilePhoto = object.get("image");
 	        //strPut +="<img src="+profilePhoto.url()+"\">";
-
+	        alert(profilePhoto.url);
 	        var img = document.createElement('img');
 		    //span.id = '_attachment' + i;
 		    img.url = profilePhoto.url();
-		    //span.innerHTML = extractFileName(G('_upfile'+i).value) + '&nbsp;<a  href="javascript:delAttachment(' + (i++) + ')"><font color="blue">删除</font></a><br/>';
 		    alert(img.url);
 		  
 		    G('picturesWall').appendChild(img);
