@@ -151,13 +151,13 @@
 			query.ascending("categoryId");
 			query.find({
 				success: function(results) {
-		    		for (var i = 0; i < results.length; i++) {
-		      			var object = results[i];
+		    		for (var k = 0; k < results.length; k++) {
+		      			var object = results[k];
 		      			var newCheckbox = document.createElement('input');
 		      			newCheckbox.type = "checkbox"
-		      			newCheckbox.id="category"+i;
+		      			newCheckbox.id="category"+k;
 		      			alert(object.get("categoryName"));
-		      			newCheckbox.innerHTML = '<a>what</a>';
+		      			newCheckbox.innerHTML = '<a  href="javascript:delAttachment(' + k + ')"><font color="blue">删除</font></a><br/>';
 		      			alert(newCheckbox.innerHTML);
 		      			//newCheckbox.innerText = object.get("categoryName");
 					    G('categoriesList').appendChild(newCheckbox);
