@@ -12,23 +12,11 @@
 		var filesArr = new  Array();
 		function addAttachmentToList()
 		{
-		/*
-		  if (findAttachment(event.srcElement.value)) return; //如果此文档已在附件列表中则不再添加
 
-		  alert(event.srcElement.value);
-		  filesArr.push(event.srcElement.value);
-
-		  */
 		  if (findAttachment(G('_upfile'+i).value)) return; //如果此文档已在附件列表中则不再添加
 		  filesArr.push(G('_upfile'+i).files[0]);		  
 		  // 动态创建附件信息栏并添加到附件列表中
-		  /*
-		  var span = document.createElement('span');
-		  span.id = '_attachment' + i;
-		  span.innerHTML = extractFileName(event.srcElement.value) + '&nbsp;<a href="javascript:delAttachment(' + (i++) + ')"><font color="blue">删除</font></a><br/>';
-		  span.title = event.srcElement.value;
-		  G('attachmentList').appendChild(span);
-		  */
+
 		  var span = document.createElement('span');
 		  span.id = '_attachment' + i;
 		  
@@ -161,5 +149,9 @@
 
 		<div id="total" style="margin:3px 0px 0px 0px;">当前选择上传0个附件</div>
 		<input type="button" value="上传" id="btnUpload" onclick="upload();"></input>
+
+		<div id="picturesWall" style="margin:3px 0px 0px 0px;padding:4px 3px 4px 3px;background-color:#DEEBC6;border:1px solid #84A24A;">
+
+		</div>
 </BODY>
 </HTML>
