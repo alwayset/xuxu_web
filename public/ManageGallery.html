@@ -157,10 +157,14 @@
 		      			newCheckbox.type = "checkbox"
 		      			newCheckbox.id="category"+k;
 		      			alert(object.get("categoryName"));
-		      			newCheckbox.innerHTML = '<a  href="javascript:delAttachment(' + k + ')"><font color="blue">删除</font></a><br/>';
-		      			alert(newCheckbox.innerHTML);
+		      			
 		      			//newCheckbox.innerText = object.get("categoryName");
 					    G('categoriesList').appendChild(newCheckbox);
+
+		      			var span = document.createElement('span');
+						span.innerHTML = 'haha';
+						alert(span.innerHTML);
+		  				G('categoriesList').appendChild(span);
 					}
 		  		},
 		  		error: function(error) {
