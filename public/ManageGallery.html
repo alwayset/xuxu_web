@@ -23,13 +23,7 @@
 		  //var avFile = new AV.File(name, file);
 		  */
 		  if (findAttachment(G('_upfile'+i).value)) return; //如果此文档已在附件列表中则不再添加
-
-		  alert(G('_upfile'+i).value);
-		  alert(G('_upfile'+i).files[0]);
-		  filesArr.push(G('_upfile'+i).files[0]);
-		  
-		  alert(filesArr.length);
-		  
+		  filesArr.push(G('_upfile'+i).files[0]);		  
 		  // 动态创建附件信息栏并添加到附件列表中
 		  /*
 		  var span = document.createElement('span');
@@ -40,9 +34,11 @@
 		  */
 		   var span = document.createElement('span');
 		  span.id = '_attachment' + i;
-		  alert(span.id);
+		  
 		  span.innerHTML = extractFileName(G('_upfile'+i).value) + '&nbsp;<a href="javascript:delAttachment(' + (i++) + ')"><font color="blue">删除</font></a><br/>';
+		  alert(span.innerHTML);
 		  span.title = G('_upfile'+i).value;
+		  alert(span.title);
 		  G('attachmentList').appendChild(span);
 		  
 		  // 显示附件列表并变换添加附件按钮文本
