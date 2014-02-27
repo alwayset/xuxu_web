@@ -21,11 +21,11 @@ $(function() {
 	  //var strPut = "";
 	  
 	  var collection = new Pictures();
-
+	  var s = 0;
 	  collection.fetch({
 	    success: function(collection) {
 	      collection.each(function(object) {
-
+	      	s++;
 	        //document.writeln(object.get("contentText")+"123\n");
 	        var profilePhoto = object.get('image');
 	        //strPut +="<img src="+profilePhoto.url()+"\">";
@@ -45,6 +45,7 @@ $(function() {
 	      // The collection could not be retrieved.
 	    }
 	  });
+	  alert("共"+s +“张picture”)；
 	  collection.comparator = function(object) {
 	    return object.get("createdAt");
 	  };
