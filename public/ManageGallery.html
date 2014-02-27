@@ -124,14 +124,27 @@
 		function upload()
 		{
 			//alert(filesArr.length);
+			var succeed = 0;
 		  	for(var k=filesArr.length-1;k>=0;k--)
 			{
 				//alert(k);
 				var name = "photo.jpg";
 				var avFile = new AV.File(name, filesArr[k]);
 				avFile.save();
+				var picture = new Picture();
+
+				picture.set("image", avFile);
+				picture.save(null, {
+  					success: function(gameScore) {
+  						succeed++;
+    					//alert('New object created with objectId: ' + gameScore.id);
+  					},
+  					error: function(gameScore, error) {
+    					//alert('Failed to create new object, with error code: ' + error.description);
+  					}
+				});
 			}
-			alert("上传了，真的");
+			alert(succeed + "张图片上传了，真的");
 		}
 	</script>
 </HEAD>
