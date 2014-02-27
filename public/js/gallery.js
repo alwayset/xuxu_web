@@ -15,6 +15,7 @@ $(function() {
 	var query = new AV.Query(Picture);
 	//query.equalTo("playerName", "Dan Stemkoski");
 	query.descending("createdAt");
+	query.limit(200);
 	query.find({
   		success: function(results) {
     		alert("Successfully retrieved " + results.length + " pictures.");
