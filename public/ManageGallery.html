@@ -158,10 +158,8 @@
 		      			var newCheckbox = document.createElement('input');
 		      			newCheckbox.type = "checkbox"
 		      			newCheckbox.id="category"+i;
-		      			//newCheckbox.value = object.get("categoryName");
-		      			alert(newCheckbox.value);
+		      			newCheckbox.name = object.get("categoryName");
 					    G('categoriesList').appendChild(newCheckbox);
-					    document.writeln(object.get("categoryName"));
 					}
 		  		},
 		  		error: function(error) {
