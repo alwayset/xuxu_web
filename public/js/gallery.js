@@ -29,9 +29,9 @@ $(function() {
 	      collection.each(function(object) {
 	      	alert("3");
 	        //document.writeln(object.get("contentText")+"123\n");
-	        var profilePhoto = object.get("image");
+	        var profilePhoto = object.get('image');
 	        //strPut +="<img src="+profilePhoto.url()+"\">";
-	        alert("id:"+object.get('objectId'));
+	        alert("i:"+object.get('image'));
 	        alert(profilePhoto.url());
 	        var img = document.createElement('img');
 		    //span.id = '_attachment' + i;
