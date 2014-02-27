@@ -31,6 +31,7 @@ $(function() {
 	        //document.writeln(object.get("contentText")+"123\n");
 	        var profilePhoto = object.get("image");
 	        //strPut +="<img src="+profilePhoto.url()+"\">";
+	        alert("url:");
 	        alert(profilePhoto.url());
 	        var img = document.createElement('img');
 		    //span.id = '_attachment' + i;
