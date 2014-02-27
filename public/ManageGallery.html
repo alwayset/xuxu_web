@@ -10,6 +10,7 @@
 	<script type="text/javascript">
 		var i = 0; // 用来动态生成span,upfile的id
 		var filesArr = new  Array();
+		var categoryNum;
 		function addAttachmentToList()
 		{
 
@@ -123,7 +124,6 @@
 		}
 		function upload()
 		{
-			var s = 0;
 		  	for(var k=filesArr.length-1;k>=0;k--)
 			{
 				var name = "fromXuxuBackend.jpg";
@@ -134,15 +134,21 @@
 				picture.set("image",avFile);
 				picture.save(null, {
 				  success: function(picture) {
-				  	s++;
+				  		for (var k = categoryNum - 1; k >= 0; k--) {
+				  			if (G('category'+k).checked) {
+				  				alert(k+" value=" + G('category'+k).value + "checked");
+				  			}
+				  		};
 				  },
 				  error: function(picture, error) {
 				  }
 				});
 
 			}
-			alert(s+"张图片上传了，真的");
+			alert("上传了，真的");
 		}
+
+
 		$(function() {
 			var Category = AV.Object.extend("GalleryCategory");
 
@@ -151,13 +157,14 @@
 			query.ascending("categoryId");
 			query.find({
 				success: function(results) {
+					categoryNum = results.length;
 		    		for (var k = 0; k < results.length; k++) {
 		      			var object = results[k];
 		      			var newCheckbox = document.createElement('input');
 		      			newCheckbox.type = "checkbox"
 		      			newCheckbox.id="category"+k;
 		      			//alert(object.get("categoryName"));
-		      			
+		      			newCheckbox.value = object.get('categoryId');
 		      			//newCheckbox.innerText = object.get("categoryName");
 					    G('categoriesList').appendChild(newCheckbox);
 
