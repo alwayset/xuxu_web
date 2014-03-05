@@ -51,10 +51,11 @@ $(function() {
 
 });
 
-function clickedAt()
+function clickedAt(no)
 {
-    alert("clicked");
-	//alert(object.get("objectId"));
-	//object.set("featuredAt",new Date());
-	//object.save();
+    alert(no);
+	object = objectsArr[no];
+	alert(object.get("objectId"));
+	object.set("featuredAt",new Date());
+	object.save();
 }
