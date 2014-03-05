@@ -1,3 +1,5 @@
+var i = -1;
+var objectsArr = new  Array();
 $(function() {
   AV.$ = jQuery;
 
@@ -29,11 +31,12 @@ $(function() {
   collection.fetch({
     success: function(collection) {
       collection.each(function(object) {
-        //document.writeln(object.get("contentText")+"123\n");
+	    i++;
+        objectsArr.push(object);
         var profilePhoto = object.get("thumbnail");
         //strPut +="<img src="+profilePhoto.url()+"\">";
         //alert(profilePhoto.url());
-        document.writeln("<img src=\""+profilePhoto.url()+"\" onclick=\"clickedAt()\" />");
+        document.writeln("<img src=\""+profilePhoto.url()+"\" onclick=\"clickedAt("+i+")\" />");
         //document.writeln(profilePhoto.url());
       });
     },
@@ -50,7 +53,7 @@ $(function() {
 
 function clickedAt()
 {
-alert("clicked");
+    alert("clicked");
 	//alert(object.get("objectId"));
 	//object.set("featuredAt",new Date());
 	//object.save();
