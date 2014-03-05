@@ -38,6 +38,7 @@ $(function() {
         //alert(profilePhoto.url());
         document.writeln("<img src=\""+profilePhoto.url()+"\" />");
         document.writeln("<input type='button' value='推荐' onclick='clickPic()' />");
+		alert("<input type='button' value='推荐' onclick='clickPic("+i+")' />");
       });
     },
     error: function(collection, error) {
