@@ -37,7 +37,7 @@ $(function() {
         //strPut +="<img src="+profilePhoto.url()+"\">";
         //alert(profilePhoto.url());
         document.writeln("<img src=\""+profilePhoto.url()+"\" />");
-        document.writeln("<input type='button' value='推荐' onclick='clickedAt("+i+")' />");
+        document.writeln("<input type='button' value='推荐' onclick='clickPic()' />");
       });
     },
     error: function(collection, error) {
@@ -51,11 +51,12 @@ $(function() {
 
 });
 
-function clickedAt(no)
+function clickPic()
 {
-    alert(no);
-	object = objectsArr[no];
-	alert(object.get("objectId"));
-	object.set("featuredAt",new Date());
-	object.save();
+alert("click");
+    //alert(no);
+	//object = objectsArr[no];
+	//alert(object.get("objectId"));
+	//object.set("featuredAt",new Date());
+	//object.save();
 }
