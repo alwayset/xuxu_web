@@ -32,8 +32,8 @@ $(function() {
         //document.writeln(object.get("contentText")+"123\n");
         var profilePhoto = object.get("thumbnail");
         //strPut +="<img src="+profilePhoto.url()+"\">";
-        alert(profilePhoto.url());
-        document.writeln("<img src=\""+profilePhoto.url()+"\" onclick=\"clickedAt(object)\" />");
+        //alert(profilePhoto.url());
+        document.writeln("<img src=\""+profilePhoto.url()+"\" onclick=\"clickedAt()\" />");
         //document.writeln(profilePhoto.url());
       });
     },
@@ -48,9 +48,10 @@ $(function() {
 
 });
 
-function clickedAt(object)
+function clickedAt()
 {
-	alert(object.get("objectId"));
-	object.set("featuredAt",new Date());
-	object.save();
+alert("clicked");
+	//alert(object.get("objectId"));
+	//object.set("featuredAt",new Date());
+	//object.save();
 }
