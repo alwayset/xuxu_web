@@ -36,8 +36,8 @@ $(function() {
         var profilePhoto = object.get("thumbnail");
         //strPut +="<img src="+profilePhoto.url()+"\">";
         //alert(profilePhoto.url());
-        document.writeln("<img src=\""+profilePhoto.url()+"\" onclick=\"clickedAt("+i+")\" />");
-        //document.writeln(profilePhoto.url());
+        document.writeln("<img src=\""+profilePhoto.url()+"\" />");
+        document.writeln("<input type='button' value='推荐' onclick='clickedAt("+i+")' />");
       });
     },
     error: function(collection, error) {
