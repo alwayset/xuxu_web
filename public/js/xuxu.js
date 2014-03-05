@@ -1,5 +1,14 @@
 var i = -1;
 var objectsArr = new  Array();
+function clickPic()
+{
+alert("click");
+    //alert(no);
+	//object = objectsArr[no];
+	//alert(object.get("objectId"));
+	//object.set("featuredAt",new Date());
+	//object.save();
+}
 $(function() {
   AV.$ = jQuery;
 
@@ -52,12 +61,3 @@ $(function() {
 
 });
 
-function clickPic()
-{
-alert("click");
-    //alert(no);
-	//object = objectsArr[no];
-	//alert(object.get("objectId"));
-	//object.set("featuredAt",new Date());
-	//object.save();
-}
