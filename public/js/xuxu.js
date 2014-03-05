@@ -33,7 +33,7 @@ $(function() {
         var profilePhoto = object.get("thumbnail");
         //strPut +="<img src="+profilePhoto.url()+"\">";
         alert(profilePhoto.url());
-        document.writeln("<img src=\""+profilePhoto.url()+"\"/>");
+        document.writeln("<img src=\""+profilePhoto.url()+"\" onclick=\"clickedAt(object)\" />");
         //document.writeln(profilePhoto.url());
       });
     },
@@ -47,3 +47,10 @@ $(function() {
   //$("#divImg").html(strPut);//<div id="divImg"></div>
 
 });
+
+function clickedAt(object)
+{
+	alert(object.get("objectId"));
+	object.set("featuredAt",new Date());
+	object.save();
+}
