@@ -46,7 +46,7 @@ $(function() {
         //strPut +="<img src="+profilePhoto.url()+"\">";
         //alert(profilePhoto.url());
         document.writeln("<img src=\""+profilePhoto.url()+"\" />");
-        document.writeln("<input type='button' value='推荐' onclick='clickPic()' />");
+        document.writeln("<input type='button' value='推荐' onclick='javascript:clickPic()' />");
 		alert("<input type='button' value='推荐' onclick='clickPic("+i+")' />");
       });
     },
