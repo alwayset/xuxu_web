@@ -10,6 +10,7 @@ function clickPic(x)
 	  //alert(objectsArr[x].get("objectId"));
 	  objectsArr[x].set("featuredAt",new Date());
 	  objectsArr[x].save();
+    alert("推荐成功！");
 }
 $(function() {
   AV.$ = jQuery;
