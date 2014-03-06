@@ -1,10 +1,10 @@
 var i = -1;
 var objectsArr = new  Array();
-function clickPic(no)
+function clickPic(x)
 {
-  alert("click");
-    alert(no);
-	  object = objectsArr[no];
+    alert("click");
+    alert(x);
+	  object = objectsArr[x];
 	  alert(object.get("objectId"));
 	  object.set("featuredAt",new Date());
 	  object.save();
