@@ -2,12 +2,12 @@ var i = -1;
 var objectsArr = new  Array();
 function clickPic(x)
 {
-    alert("click");
-    alert(x);
-    alert("length="+objectsArr.length);
+    //alert("click");
+    //alert(x);
+    //alert("length="+objectsArr.length);
 	  //var object = objectsArr[x];
-    alert(objectsArr[x]);
-	  alert(objectsArr[x].get("objectId"));
+    //alert(objectsArr[x]);
+	  //alert(objectsArr[x].get("objectId"));
 	  objectsArr[x].set("featuredAt",new Date());
 	  objectsArr[x].save();
 }
@@ -49,7 +49,7 @@ $(function() {
         //alert(profilePhoto.url());
         document.writeln("<img src=\""+profilePhoto.url()+"\" />");
         document.writeln("<input type='button' value='推荐' onclick='javascript:clickPic("+i+")' />");
-		alert("<input type='button' value='推荐' onclick='clickPic("+i+")' />");
+		    //alert("<input type='button' value='推荐' onclick='clickPic("+i+")' />");
       });
     },
     error: function(collection, error) {
