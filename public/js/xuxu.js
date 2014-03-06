@@ -1,13 +1,13 @@
 var i = -1;
 var objectsArr = new  Array();
-function clickPic()
+function clickPic(no)
 {
-alert("click");
-    //alert(no);
-	//object = objectsArr[no];
-	//alert(object.get("objectId"));
-	//object.set("featuredAt",new Date());
-	//object.save();
+  alert("click");
+    alert(no);
+	  object = objectsArr[no];
+	  alert(object.get("objectId"));
+	  object.set("featuredAt",new Date());
+	  object.save();
 }
 $(function() {
   AV.$ = jQuery;
@@ -46,7 +46,7 @@ $(function() {
         //strPut +="<img src="+profilePhoto.url()+"\">";
         //alert(profilePhoto.url());
         document.writeln("<img src=\""+profilePhoto.url()+"\" />");
-        document.writeln("<input type='button' value='推荐' onclick='javascript:clickPic()' />");
+        document.writeln("<input type='button' value='推荐' onclick='javascript:clickPic("+i+")' />");
 		alert("<input type='button' value='推荐' onclick='clickPic("+i+")' />");
       });
     },
