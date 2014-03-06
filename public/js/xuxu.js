@@ -4,8 +4,8 @@ function clickPic(x)
 {
     alert("click");
     alert(x);
-    alert("length="+objectsArr.length)
-	  object = objectsArr[x];
+    alert("length="+objectsArr.length);
+	  var object = objectsArr[x];
 	  alert(object.get("objectId"));
 	  object.set("featuredAt",new Date());
 	  object.save();
