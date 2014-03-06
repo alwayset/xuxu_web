@@ -1,9 +1,10 @@
-var i = -1;
+var i = 0;
 var objectsArr = new  Array();
 function clickPic(x)
 {
     alert("click");
     alert(x);
+    alert("length="+objectsArr.length)
 	  object = objectsArr[x];
 	  alert(object.get("objectId"));
 	  object.set("featuredAt",new Date());
@@ -40,7 +41,7 @@ $(function() {
   collection.fetch({
     success: function(collection) {
       collection.each(function(object) {
-	    i++;
+	      i++;
         objectsArr.push(object);
         var profilePhoto = object.get("thumbnail");
         //strPut +="<img src="+profilePhoto.url()+"\">";
