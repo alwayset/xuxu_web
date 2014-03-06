@@ -1,14 +1,15 @@
-var i = 0;
+var i = -1;
 var objectsArr = new  Array();
 function clickPic(x)
 {
     alert("click");
     alert(x);
     alert("length="+objectsArr.length);
-	  var object = objectsArr[x];
-	  alert(object.get("objectId"));
-	  object.set("featuredAt",new Date());
-	  object.save();
+	  //var object = objectsArr[x];
+    alert(objectsArr[x]);
+	  alert(objectsArr[x].get("objectId"));
+	  objectsArr[x].set("featuredAt",new Date());
+	  objectsArr[x].save();
 }
 $(function() {
   AV.$ = jQuery;
