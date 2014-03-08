@@ -35,7 +35,7 @@ $(function() {
 				imgDiv.setAttribute("picObject",object); // 设置  
 			    G('picturesWall').appendChild(imgDiv);
 				
-				if (i<5)alert(imgDiv.attributes["picObject"].nodeValue);
+				if (i<5)alert((imgDiv.attributes["picObject"].nodeValue).get('objectId'));
 				
 	        	var img = document.createElement('img');
 		    	img.src = profilePhoto.url();
