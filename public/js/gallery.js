@@ -52,22 +52,28 @@ $(function() {
 				del.type = 'button';
 				del.value = '删除';
 				del.onclick = function (e){
-					alert(e.target.parentNode.id);
+					//alert(e.target.parentNode.id);
 					var currentPic = e.target.parentNode.picObject;
-					alert(currentPic);
+					//alert(currentPic);
 					//alert(currentPic.get('image'));
 					//alert(currentPic.get('image').url());
+					var currentFile = currentPic.get('image');
 					currentPic.destroy({
 					  success: function(currentPic) {
 						// The object was deleted from the AVOS Cloud.
-						alert("删除成功");
+						currentFile.destroy({
+							success: function(currentFile){
+								alert("删除成功");
+							},
+							error: function(currentFile, error) {
+							}
+						});
 					  },
 					  error: function(currentPic, error) {
 						// The delete failed.
 						// error is a AV.Error with an error code and description.
 					  }
 					});
-					alert(e.target.parentNode.id);
 				}; 
 			    G('imgDiv' + i).appendChild(del);
 			}
