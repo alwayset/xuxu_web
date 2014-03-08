@@ -48,7 +48,7 @@ $(function() {
 				del.type = 'button';
 				del.value = '删除';
 				del.onclick = function (e){
-					var currentPic = e.target.parentNode.attributes["picObject"];
+					var currentPic = e.target.parentNode.attributes["picObject"].nodeValue;
 					alert(currentPic);
 					alert(currentPic.get('objectId'));
 					currentPic.destroy({
