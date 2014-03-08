@@ -27,7 +27,8 @@ $(function() {
 				var imgDiv = document.createElement('div');
 				imgDiv.id = 'imgDiv' + i;
 		    	imgDiv.style.width = '75px';
-			    imgDiv.style.height = '120px';
+			    imgDiv.style.height = '150px';
+				imgDiv.style.float = 'left';
 			    G('picturesWall').appendChild(imgDiv);
 				
 	        	var img = document.createElement('img');
@@ -38,6 +39,8 @@ $(function() {
 				
 				var del = document.createElement('input');
 				del.type = 'button';
+				del.value = '删除';
+				del.innerHtml = 'del';
 			    G('imgDiv' + i).appendChild(del);
 			}
   		},
