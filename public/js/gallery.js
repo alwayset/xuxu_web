@@ -62,7 +62,7 @@ $(function() {
 					  success: function(currentPic) {
 						// The object was deleted from the AVOS Cloud.
 						alert(currentFile);
-						alert(currentFile.get("key");
+						alert(currentFile.get("key"));
 						currentFile.destroy({
 							success: function(currentFile){
 								alert("删除成功");
