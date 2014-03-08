@@ -41,13 +41,16 @@ $(function() {
 			    G('imgDiv' + i).appendChild(img);
 				
 				var del = document.createElement('input');
+				del.id = 'del'+i;
 				del.type = 'button';
 				del.value = '删除';
+				del.imgObject = object;
 				del.onclick = function (){
-					alert(object.get(objectId));
+					alert(del.id);
+					alert(del.imgObject);
 
 				}; 
-				if (i<10) alert(del.onclick);
+				if (i<5) alert(del.onclick);
 			    G('imgDiv' + i).appendChild(del);
 			}
   		},
