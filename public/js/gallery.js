@@ -32,7 +32,10 @@ $(function() {
 			    imgDiv.style.height = '240px';
 				imgDiv.style.float = 'left';
 				imgDiv.style.align = 'center';
+				imgDiv.setAttribute("picObject",object); // 设置  
 			    G('picturesWall').appendChild(imgDiv);
+				
+				if (i<5)alert(imgDiv.attributes["picObject"].nodeValue);
 				
 	        	var img = document.createElement('img');
 		    	img.src = profilePhoto.url();
@@ -44,7 +47,6 @@ $(function() {
 				del.id = 'del'+i;
 				del.type = 'button';
 				del.value = '删除';
-				del.imgObject = object;
 				del.onclick = function (e){
 					alert(e.target.parentNode.id);
 				}; 
