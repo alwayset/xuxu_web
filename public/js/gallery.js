@@ -1,3 +1,5 @@
+var var objectsArr = new  Array();
+
 $(function() {
   AV.$ = jQuery;
 
@@ -26,21 +28,23 @@ $(function() {
 
 				var imgDiv = document.createElement('div');
 				imgDiv.id = 'imgDiv' + i;
-		    	imgDiv.style.width = '75px';
-			    imgDiv.style.height = '150px';
+		    	imgDiv.style.width = '160px';
+			    imgDiv.style.height = '240px';
 				imgDiv.style.float = 'left';
+				imgDiv.style.align = 'center';
 			    G('picturesWall').appendChild(imgDiv);
 				
 	        	var img = document.createElement('img');
 		    	img.src = profilePhoto.url();
-		    	img.style.width = '75px';
-			    img.style.height = '100px';
+		    	img.style.width = '150px';
+			    img.style.height = '200px';
 			    G('imgDiv' + i).appendChild(img);
 				
 				var del = document.createElement('input');
 				del.type = 'button';
 				del.value = '删除';
-				del.onclick = 'delImg('+ i +')';
+				del.onclick = 'javascript:delImg('+ i +')';
+				if (i<10) alert(del.onclick);
 			    G('imgDiv' + i).appendChild(del);
 			}
   		},
