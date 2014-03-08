@@ -24,12 +24,21 @@ $(function() {
       			var object = results[i];
       			var profilePhoto = object.get('image');
 
+				var imgDiv = document.createElement('div');
+				imgDiv.id = 'imgDiv' + i;
+		    	imgDiv.style.width = '75px';
+			    imgDiv.style.height = '120px';
+			    G('picturesWall').appendChild(imgDiv);
+				
 	        	var img = document.createElement('img');
 		    	img.src = profilePhoto.url();
 		    	img.style.width = '75px';
 			    img.style.height = '100px';
-			  
-			    G('picturesWall').appendChild(img);
+			    G('imgDiv' + i).appendChild(img);
+				
+				var del = document.createElement('input');
+				del.type = 'button';
+			    G('imgDiv' + i).appendChild(del);
 			}
   		},
   		error: function(error) {
