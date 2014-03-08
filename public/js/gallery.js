@@ -45,8 +45,8 @@ $(function() {
 				del.type = 'button';
 				del.value = '删除';
 				del.imgObject = object;
-				del.onclick = function (i){
-					alert(i);
+				del.onclick = function (e){
+					alert(e.target);
 				}; 
 				if (i<5) alert(del.onclick);
 			    G('imgDiv' + i).appendChild(del);
