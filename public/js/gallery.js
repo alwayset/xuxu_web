@@ -1,4 +1,4 @@
-var var objectsArr = new  Array();
+var imgsArr = new  Array();
 
 $(function() {
   AV.$ = jQuery;
