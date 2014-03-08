@@ -35,7 +35,7 @@ $(function() {
 				imgDiv.setAttribute("picObject",object); // 设置  
 			    G('picturesWall').appendChild(imgDiv);
 				
-				if (i<5)alert((imgDiv.attributes["picObject"].nodeValue).get('objectId'));
+				//if (i<5) alert(imgDiv.attributes["picObject"].nodeValue);
 				
 	        	var img = document.createElement('img');
 		    	img.src = profilePhoto.url();
@@ -48,6 +48,17 @@ $(function() {
 				del.type = 'button';
 				del.value = '删除';
 				del.onclick = function (e){
+					var currentPic = e.target.parentNode.attributes["picObject"];
+					currentPic.destroy({
+					  success: function(currentPic) {
+						// The object was deleted from the AVOS Cloud.
+						alert("删除成功");
+					  },
+					  error: function(currentPic, error) {
+						// The delete failed.
+						// error is a AV.Error with an error code and description.
+					  }
+					});
 					alert(e.target.parentNode.id);
 				}; 
 			    G('imgDiv' + i).appendChild(del);
