@@ -36,9 +36,9 @@ $(function() {
 				imgDiv.picObject = object;
 			    G('picturesWall').appendChild(imgDiv);
 				
-				if (i<5) alert(object.objectId);
-				if (i<5) alert(imgDiv.picObject);
-				if (i<5) alert(imgDiv.picObject.objectId);
+				//if (i<5) alert(object.objectId);
+				//if (i<5) alert(imgDiv.picObject);
+				//if (i<5) alert(imgDiv.picObject.objectId);
 				//if (i<5) alert(imgDiv.attributes["picObject"].nodeValue);
 				
 	        	var img = document.createElement('img');
@@ -53,10 +53,10 @@ $(function() {
 				del.value = '删除';
 				del.onclick = function (e){
 					alert(e.target.parentNode.id);
-					var currentPic = e.target.parentNode.attributes["picObject"].nodeValue;
+					var currentPic = e.target.parentNode.picObject;
 					alert(currentPic);
-					alert(currentPic.get('image'));
-					alert(currentPic.get('image').url());
+					//alert(currentPic.get('image'));
+					//alert(currentPic.get('image').url());
 					currentPic.destroy({
 					  success: function(currentPic) {
 						// The object was deleted from the AVOS Cloud.
