@@ -49,6 +49,8 @@ $(function() {
 				del.value = '删除';
 				del.onclick = function (e){
 					var currentPic = e.target.parentNode.attributes["picObject"];
+					alert(currentPic);
+					alert(currentPic.get('objectId'));
 					currentPic.destroy({
 					  success: function(currentPic) {
 						// The object was deleted from the AVOS Cloud.
