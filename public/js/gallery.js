@@ -43,7 +43,10 @@ $(function() {
 				var del = document.createElement('input');
 				del.type = 'button';
 				del.value = '删除';
-				del.onclick = 'javascript:delImg('+ i +')';
+				del.onclick = function (){
+					alert(i);
+
+				}; 
 				if (i<10) alert(del.onclick);
 			    G('imgDiv' + i).appendChild(del);
 			}
@@ -53,8 +56,3 @@ $(function() {
   		}	
 	});
 });
-
-function delImg(x)
-{
-	alert(x);
-}
