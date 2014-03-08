@@ -44,7 +44,7 @@ $(function() {
 				del.type = 'button';
 				del.value = '删除';
 				del.onclick = function (){
-					alert(i);
+					alert(object.get(objectId));
 
 				}; 
 				if (i<10) alert(del.onclick);
