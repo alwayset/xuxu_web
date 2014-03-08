@@ -46,9 +46,8 @@ $(function() {
 				del.value = '删除';
 				del.imgObject = object;
 				del.onclick = function (e){
-					alert(e.target.prev().id);
+					alert(e.target.parentNode.id);
 				}; 
-				if (i<5) alert(del.onclick);
 			    G('imgDiv' + i).appendChild(del);
 			}
   		},
