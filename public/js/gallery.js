@@ -50,7 +50,8 @@ $(function() {
 				del.onclick = function (e){
 					var currentPic = e.target.parentNode.attributes["picObject"].nodeValue;
 					alert(currentPic);
-					alert(currentPic.get('objectId'));
+					alert(currentPic.get('image'));
+					alert(currentPic.get('image').url());
 					currentPic.destroy({
 					  success: function(currentPic) {
 						// The object was deleted from the AVOS Cloud.
