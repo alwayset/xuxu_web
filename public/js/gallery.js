@@ -32,10 +32,13 @@ $(function() {
 			    imgDiv.style.height = '240px';
 				imgDiv.style.float = 'left';
 				imgDiv.style.align = 'center';
-				imgDiv.setAttribute("picObject",object); // 设置  
+				//imgDiv.setAttribute("picObject",object); // 设置  
+				imgDiv.picObject = object;
 			    G('picturesWall').appendChild(imgDiv);
 				
-				if (i<5) alert(object.get('objectId'));
+				if (i<5) alert(object.objectId);
+				if (i<5) alert(imgDiv.picObject);
+				if (i<5) alert(imgDiv.picObject.objectId);
 				//if (i<5) alert(imgDiv.attributes["picObject"].nodeValue);
 				
 	        	var img = document.createElement('img');
