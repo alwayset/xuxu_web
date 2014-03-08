@@ -35,6 +35,7 @@ $(function() {
 				imgDiv.setAttribute("picObject",object); // 设置  
 			    G('picturesWall').appendChild(imgDiv);
 				
+				if (i<5) alert(object.get('objectId'));
 				//if (i<5) alert(imgDiv.attributes["picObject"].nodeValue);
 				
 	        	var img = document.createElement('img');
@@ -48,6 +49,7 @@ $(function() {
 				del.type = 'button';
 				del.value = '删除';
 				del.onclick = function (e){
+					alert(e.target.parentNode.id);
 					var currentPic = e.target.parentNode.attributes["picObject"].nodeValue;
 					alert(currentPic);
 					alert(currentPic.get('image'));
