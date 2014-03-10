@@ -58,19 +58,10 @@ $(function() {
 					//alert(currentPic);
 					//alert(currentPic.get('image'));
 					//alert(currentPic.get('image').url());
-					//var currentFile = currentPic.get('image');
+					var currentFile = currentPic.get('image');
 					currentPic.destroy({
 					  success: function(currentPic) {
 						// The object was deleted from the AVOS Cloud.
-<<<<<<< HEAD
-						//alert(currentFile);
-						//alert(currentFile.get("key"));
-						alert("删除成功");
-						/*
-=======
-						alert(currentFile);
-						alert(currentFile.name());
->>>>>>> 1f38a45a13ea3c6d35ef14d7217573f91d49aa81
 						currentFile.destroy({
 							success: function(currentFile){
 								alert("删除成功");
@@ -78,7 +69,6 @@ $(function() {
 							error: function(currentFile, error) {
 							}
 						});
-						*/
 					  },
 					  error: function(currentPic, error) {
 						// The delete failed.
