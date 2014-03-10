@@ -36,6 +36,7 @@ $(function() {
 				imgDiv.picObject = object;
 			    G('picturesWall').appendChild(imgDiv);
 				
+				if (i<5) alert(profilePhoto.name());
 				//if (i<5) alert(object.objectId);
 				//if (i<5) alert(imgDiv.picObject);
 				//if (i<5) alert(imgDiv.picObject.objectId);
@@ -61,10 +62,15 @@ $(function() {
 					currentPic.destroy({
 					  success: function(currentPic) {
 						// The object was deleted from the AVOS Cloud.
+<<<<<<< HEAD
 						//alert(currentFile);
 						//alert(currentFile.get("key"));
 						alert("删除成功");
 						/*
+=======
+						alert(currentFile);
+						alert(currentFile.name());
+>>>>>>> 1f38a45a13ea3c6d35ef14d7217573f91d49aa81
 						currentFile.destroy({
 							success: function(currentFile){
 								alert("删除成功");
