@@ -57,12 +57,14 @@ $(function() {
 					//alert(currentPic);
 					//alert(currentPic.get('image'));
 					//alert(currentPic.get('image').url());
-					var currentFile = currentPic.get('image');
+					//var currentFile = currentPic.get('image');
 					currentPic.destroy({
 					  success: function(currentPic) {
 						// The object was deleted from the AVOS Cloud.
-						alert(currentFile);
-						alert(currentFile.get("key"));
+						//alert(currentFile);
+						//alert(currentFile.get("key"));
+						alert("删除成功");
+						/*
 						currentFile.destroy({
 							success: function(currentFile){
 								alert("删除成功");
@@ -70,6 +72,7 @@ $(function() {
 							error: function(currentFile, error) {
 							}
 						});
+						*/
 					  },
 					  error: function(currentPic, error) {
 						// The delete failed.
