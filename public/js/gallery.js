@@ -28,8 +28,8 @@ $(function() {
 
 				var imgDiv = document.createElement('div');
 				imgDiv.id = 'imgDiv' + i;
-		    	imgDiv.style.width = '160px';
-			    imgDiv.style.height = '240px';
+		    	imgDiv.style.width = '320px';
+			    imgDiv.style.height = '480px';
 				imgDiv.style.float = 'left';
 				imgDiv.style.align = 'center';
 				//imgDiv.setAttribute("picObject",object); // 设置  
@@ -40,8 +40,8 @@ $(function() {
 				
 	        	var img = document.createElement('img');
 		    	img.src = profilePhoto.url();
-		    	img.style.width = '150px';
-			    img.style.height = '200px';
+		    	img.style.width = '300px';
+			    img.style.height = '400px';
 			    G('imgDiv' + i).appendChild(img);
 				
 				var del = document.createElement('input');
