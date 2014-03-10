@@ -58,8 +58,16 @@ $(function() {
 				feature.type = 'button';
 				feature.value = '推荐';
 				feature.onclick = function (e){
-					imgDiv.picObject.set("featuredAt",new Date());
-					imgDiv.picObject.save();
+					var currentPic = e.target.parentNode.picObject;
+					currentPic.set("featuredAt",new Date());
+					currentPic.save(null, {
+					  success: function(currentPic) {
+						alert("推荐成功");
+					  },
+					  error: function(currentPic, error) {
+						
+					  }
+					});
 				}; 
 			    G('imgDiv' + i).appendChild(feature);
 				/*
