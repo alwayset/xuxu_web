@@ -1,3 +1,4 @@
+/*
 var i = -1;
 var objectsArr = new  Array();
 function clickPic(x)
@@ -12,6 +13,7 @@ function clickPic(x)
 	  objectsArr[x].save();
     alert("推荐成功！");
 }
+*/
 $(function() {
   AV.$ = jQuery;
 
@@ -19,48 +21,82 @@ $(function() {
   AV.initialize("wzxcxb6x360ze0tcp0jrewnkz42ardd3wwnknfpgfl8k4huc",
                    "3reqogjfk7eyv86r2khbmzmakw9rmcfcj0la0pgfk270mmm7");
 
-  // Todo Model
-  // ----------
+
 
   // Our basic Todo model has `content`, `order`, and `done` attributes.
   var PaWallObject = AV.Object.extend("PaWallObject");
 
-  // Todo Collection
-  // ---------------
-
-  var PaWallObjects = AV.Collection.extend({
-
-    // Reference to this collection's model.
-    model: PaWallObject,
-
-  });
-
-  //var strPut = "";
   
+  var query = new AV.Query(PaWallObject);
+	query.descending("createdAt");
+	query.limit(100);
+	query.find({
+  		success: function(results) {
+    		for (var i = 0; i < results.length; i++) {
+      			var object = results[i];
+      			var profilePhoto = object.get('image');
 
-
-  var collection = new PaWallObjects();
-  collection.fetch({
-    success: function(collection) {
-      collection.each(function(object) {
-	      i++;
-        objectsArr.push(object);
-        var profilePhoto = object.get("thumbnail");
-        //strPut +="<img src="+profilePhoto.url()+"\">";
-        //alert(profilePhoto.url());
-        document.writeln("<img src=\""+profilePhoto.url()+"\" />");
-        document.writeln("<input type='button' value='推荐' onclick='javascript:clickPic("+i+")' />");
-		    //alert("<input type='button' value='推荐' onclick='clickPic("+i+")' />");
-      });
-    },
-    error: function(collection, error) {
-      // The collection could not be retrieved.
-    }
-  });
-  collection.comparator = function(object) {
-    return object.get("createdAt");
-  };
-  //$("#divImg").html(strPut);//<div id="divImg"></div>
+				var imgDiv = document.createElement('div');
+				imgDiv.id = 'imgDiv' + i;
+		    	imgDiv.style.width = '320px';
+			    imgDiv.style.height = '480px';
+				imgDiv.style.float = 'left';
+				imgDiv.style.align = 'center';
+				imgDiv.picObject = object;
+			    G('picturesWall').appendChild(imgDiv);
+				
+				
+	        	var img = document.createElement('img');
+		    	img.src = profilePhoto.url();
+		    	img.style.width = '300px';
+			    img.style.height = '400px';
+			    G('imgDiv' + i).appendChild(img);
+				
+				
+				var feature = document.createElement('input');
+				feature.id = 'feature'+i;
+				feature.type = 'button';
+				feature.value = '推荐';
+				feature.onclick = function (e){
+					imgDiv.picObject.set("featuredAt",new Date());
+					imgDiv.picObject.save();
+				}; 
+			    G('imgDiv' + i).appendChild(feature);
+				/*
+				var del = document.createElement('input');
+				del.id = 'del'+i;
+				del.type = 'button';
+				del.value = '删除';
+				del.onclick = function (e){
+					var currentPic = e.target.parentNode.picObject;
+					var currentFile = currentPic.get('image');
+					currentPic.destroy({
+					  success: function(currentPic) {
+						// The object was deleted from the AVOS Cloud.
+						currentFile.destroy({
+							success: function(currentFile){
+								alert("删除成功");
+							},
+							error: function(currentFile, error) {
+							}
+						});
+					  },
+					  error: function(currentPic, error) {
+						// The delete failed.
+						// error is a AV.Error with an error code and description.
+					  }
+					});
+				}; 
+			    G('imgDiv' + i).appendChild(del);
+				*/
+				
+				
+			}
+  		},
+  		error: function(error) {
+    		alert("Error: " + error.code + " " + error.message);
+  		}	
+	});
 
 });
 

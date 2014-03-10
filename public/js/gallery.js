@@ -36,11 +36,7 @@ $(function() {
 				imgDiv.picObject = object;
 			    G('picturesWall').appendChild(imgDiv);
 				
-				if (i<5) alert(profilePhoto.name());
-				//if (i<5) alert(object.objectId);
-				//if (i<5) alert(imgDiv.picObject);
-				//if (i<5) alert(imgDiv.picObject.objectId);
-				//if (i<5) alert(imgDiv.attributes["picObject"].nodeValue);
+				//if (i<5) alert(profilePhoto.name());
 				
 	        	var img = document.createElement('img');
 		    	img.src = profilePhoto.url();
@@ -53,11 +49,7 @@ $(function() {
 				del.type = 'button';
 				del.value = '删除';
 				del.onclick = function (e){
-					//alert(e.target.parentNode.id);
 					var currentPic = e.target.parentNode.picObject;
-					//alert(currentPic);
-					//alert(currentPic.get('image'));
-					//alert(currentPic.get('image').url());
 					var currentFile = currentPic.get('image');
 					currentPic.destroy({
 					  success: function(currentPic) {
